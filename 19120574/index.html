@@ -36,6 +36,7 @@ function drawEdge(v,c,bc,cw,ch) {
 	var imagedata = bc.getImageData(0,0,cw,ch);
 	var data = imagedata.data;
 	var w = imagedata.width;
+	var h = imagedata.height;
 	var datalength = data.length
     // Biến đổi data sang ảnh xám
 	for(var i = 0; i < datalength; i+=4) {
@@ -49,7 +50,8 @@ function drawEdge(v,c,bc,cw,ch) {
 	}
 	// Phát hiện biên cạnh
 	for(var i = 0; i < datalength; i++) {
-		if( i%4 == 3 ) continue;
+		// bỏ kênh A, 4 hàng ở 4 biên
+		if( i%4 == 3 || i<w*4 || i>(h-1)*w*4 || i%(4*w) == 0 || i %(4*w) == w) continue;
 		data[i] = 127 + 2*data[i] - data[i + 4] - data[i + w*4];
 	}
     imagedata.data = data;
