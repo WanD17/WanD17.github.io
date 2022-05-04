@@ -1,0 +1,19 @@
+body {
+    background: white;
+}
+     
+#c {
+position: absolute;
+width: 43%;
+height: 50%;
+top: 50%;
+left: 50%;
+margin: -180px 0 0 20px;
+}
+
+#v {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    margin: -180px 0 0 -500px;
+}
